@@ -51,7 +51,7 @@ Twinkle Hub 是 **MCP-as-a-Service** — 一支 Bearer token 接進 Claude Deskt
 
 ### 1. 取得 API key
 
-到 [https://hub.twinkleai.tw/login](https://hub.twinkleai.tw/login),用 Google 或 GitHub 一鍵登入。第一次登入會自動發給你一支 virtual API key (`sk-...`)。
+到 [https://hub.twinkleai.tw/login](https://hub.twinkleai.tw/login)，用 Google 或 GitHub 一鍵登入。第一次登入會自動發給你一支 virtual API key (`sk-...`)。
 
 ### 2. Claude Desktop
 
@@ -76,11 +76,11 @@ Twinkle Hub 是 **MCP-as-a-Service** — 一支 Bearer token 接進 Claude Deskt
 }
 ```
 
-把 `sk-...` 換成你 dashboard 看到的 key，重啟 Claude Desktop,5 個 `opendata-*` tool + 32 個 `twtools-*` 就會出現。
+把 `sk-...` 換成你 dashboard 看到的 key，重啟 Claude Desktop，5 個 `opendata-*` tool + 32 個 `twtools-*` 就會出現。
 
 ### 3. Cursor
 
-Cursor 用 `~/.cursor/mcp.json`,格式跟 Claude Desktop 一樣。儲存後 → Settings → MCP → reload。
+Cursor 用 `~/.cursor/mcp.json`，格式跟 Claude Desktop 一樣。儲存後 → Settings → MCP → reload。
 
 ### 4. Claude Code (CLI)
 
@@ -123,4 +123,4 @@ claude mcp add --transport http twinkle-hub https://api.twinkleai.tw/mcp/ \
 
 ## License
 
-這個 repo 是 community feedback hub，沒有 source code。Twinkle Hub 服務本身的條款看 [/terms](https://hub.twinkleai.tw/terms),資料授權看 [/licenses](https://hub.twinkleai.tw/licenses)。
+這個 repo 是 community feedback hub，沒有 source code。Twinkle Hub 服務本身的條款看 [/terms](https://hub.twinkleai.tw/terms)，資料授權看 [/licenses](https://hub.twinkleai.tw/licenses)。
