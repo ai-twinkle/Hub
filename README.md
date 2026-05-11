@@ -5,7 +5,7 @@
 <h1 align="center">Twinkle Hub</h1>
 
 <p align="center">
-  <strong>台灣第一個 MCP Hub — 串接 data.gov.tw 全量,讓 AI 直接查台灣資料</strong>
+  <strong>台灣第一個 MCP Hub — 串接 data.gov.tw 全量，讓 AI 直接查台灣資料</strong>
 </p>
 
 <p align="center">
@@ -31,15 +31,15 @@
 
 ## 這是什麼
 
-Twinkle Hub 是 **MCP-as-a-Service** — 一支 Bearer token 接進 Claude Desktop / Cursor / OpenClaw / Hermes Agent loop / 任何能講 MCP 的 AI client,然後 AI 就能查:
+Twinkle Hub 是 **MCP-as-a-Service** — 一支 Bearer token 接進 Claude Desktop / Cursor / OpenClaw / Hermes Agent loop / 任何能講 MCP 的 AI client，然後 AI 就能查：
 
-- 📊 **49,343 個台灣政府開放資料集**(data.gov.tw 96.6% 全量,即時可查)
+- 📊 **49,343 個台灣政府開放資料集**(data.gov.tw 96.6% 全量，即時可查)
 - 🏛️ **13.5 萬筆政府採購** (PCC 政府電子採購網每日同步)
 - 🛠️ **32 個台灣專用 utility tool**(身分證 / 統編 / 民國年 / 地址 / 機構查……)
 
-**alpha 期完全免費**。試試:
+**alpha 期完全免費**。試試：
 
-> 「幫我規劃從臺北出發、3 天 2 夜的家庭親子行程,熱門景點 + 臺中合法民宿 + 沿路夜市」
+> 「幫我規劃從臺北出發、3 天 2 夜的家庭親子行程，熱門景點 + 臺中合法民宿 + 沿路夜市」
 >
 > 「列出今年金額最大的政府採購 10 件、廠商分布」
 >
@@ -60,7 +60,7 @@ Twinkle Hub 是 **MCP-as-a-Service** — 一支 Bearer token 接進 Claude Deskt
 - **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
 - **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
 
-加入:
+加入：
 
 ```json
 {
@@ -76,7 +76,7 @@ Twinkle Hub 是 **MCP-as-a-Service** — 一支 Bearer token 接進 Claude Deskt
 }
 ```
 
-把 `sk-...` 換成你 dashboard 看到的 key,重啟 Claude Desktop,5 個 `opendata-*` tool + 32 個 `twtools-*` 就會出現。
+把 `sk-...` 換成你 dashboard 看到的 key，重啟 Claude Desktop,5 個 `opendata-*` tool + 32 個 `twtools-*` 就會出現。
 
 ### 3. Cursor
 
@@ -91,9 +91,9 @@ claude mcp add --transport http twinkle-hub https://api.twinkleai.tw/mcp/ \
 
 ### 5. OpenClaw / Hermes / 自己的 agent loop
 
-我們是 **MCP endpoint(開放協定,不是 SDK)**。任何能講 MCP streamable-http 的 client / fastmcp Python loop / 你 fork 的 runtime 都能直接用。連 OAuth flow 都沒有,就一支可隨時 revoke 的 long-lived bearer。換個 endpoint 就走。
+我們是 **MCP endpoint(開放協定，不是 SDK)**。任何能講 MCP streamable-http 的 client / fastmcp Python loop / 你 fork 的 runtime 都能直接用。連 OAuth flow 都沒有，就一支可隨時 revoke 的 long-lived bearer。換個 endpoint 就走。
 
-完整教學: [https://hub.twinkleai.tw/docs](https://hub.twinkleai.tw/docs)
+完整教學：[https://hub.twinkleai.tw/docs](https://hub.twinkleai.tw/docs)
 
 ---
 
@@ -110,17 +110,17 @@ claude mcp add --transport http twinkle-hub https://api.twinkleai.tw/mcp/ \
 
 ---
 
-## 想要的功能 / 想接的資料?
+## 想要的功能 / 想接的資料？
 
-**請到 [Issues](../../issues/new/choose) 開單**,我們有兩個模板:
+**請到 [Issues](../../issues/new/choose) 開單**,我們有兩個模板：
 
 - 🎯 **Feature request** — 想要新功能、新 dataset、新 tool
 - 🐞 **Bug report** — 文件錯、tool 不能用、回應有問題
 
-> 一般討論、想法腦力激盪、「這樣設計對不對」的問題,**請去 [Discord](https://discord.com/servers/twinkle-ai-1310544431983759450)** 不用開 issue。Discord 反應比較快。
+> 一般討論、想法腦力激盪、「這樣設計對不對」的問題，**請去 [Discord](https://discord.com/servers/twinkle-ai-1310544431983759450)** 不用開 issue。Discord 反應比較快。
 
 ---
 
 ## License
 
-這個 repo 是 community feedback hub,沒有 source code。Twinkle Hub 服務本身的條款看 [/terms](https://hub.twinkleai.tw/terms),資料授權看 [/licenses](https://hub.twinkleai.tw/licenses)。
+這個 repo 是 community feedback hub，沒有 source code。Twinkle Hub 服務本身的條款看 [/terms](https://hub.twinkleai.tw/terms),資料授權看 [/licenses](https://hub.twinkleai.tw/licenses)。
