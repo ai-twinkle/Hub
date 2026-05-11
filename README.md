@@ -93,6 +93,42 @@ claude mcp add --transport http twinkle-hub https://api.twinkleai.tw/mcp/ \
 
 我們是 **MCP endpoint(開放協定，不是 SDK)**。任何能講 MCP streamable-http 的 client / fastmcp Python loop / 你 fork 的 runtime 都能直接用。連 OAuth flow 都沒有，就一支可隨時 revoke 的 long-lived bearer。換個 endpoint 就走。
 
+### 6. Codex app
+
+編輯 config:
+
+- **macOS / Linux**: `~/.codex/config.toml`
+- **Windows**: `%USERPROFILE%\.codex\config.toml`
+
+加入：
+
+```toml
+[mcp_servers.twinkle-hub]
+url = "https://api.twinkleai.tw/mcp/"
+bearer_token_env_var = "TWINKLE_HUB_TOKEN"
+```
+再把你的 API key 設成環境變數。
+
+macOS / Linux
+```
+export TWINKLE_HUB_TOKEN="sk-..."
+```
+Windows PowerShell
+```
+[Environment]::SetEnvironmentVariable(
+  "TWINKLE_HUB_TOKEN",
+  "sk-...",
+  "User"
+)
+```
+把 sk-... 換成你 dashboard 看到的 key，重啟 Codex，Twinkle Hub 的 tools 就會出現。
+
+安裝完成後可用下面指令確認：
+```
+codex mcp get twinkle-hub
+```
+如果設定成功，至少會看到 5 個 opendata-* tools。
+
 完整教學：[https://hub.twinkleai.tw/docs](https://hub.twinkleai.tw/docs)
 
 ---
