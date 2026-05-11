@@ -1,0 +1,50 @@
+name: 🐞 Bug report
+description: 文件錯、tool 不能用、回應有問題
+title: "[Bug] "
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感謝回報!如果是即時的服務中斷 / 連不上,先到 [Discord](https://discord.com/servers/twinkle-ai-1310544431983759450) 看一下有沒有公告。
+
+  - type: textarea
+    id: what
+    attributes:
+      label: 發生什麼事?
+      description: 描述問題、預期行為、實際行為
+      placeholder: |
+        例:我呼叫 search_datasets("台北 公車"),預期回傳台北 / 新北的公車相關 dataset,
+        實際回傳澎湖縣的資料
+    validations:
+      required: true
+
+  - type: textarea
+    id: repro
+    attributes:
+      label: 怎麼重現
+      description: 步驟越具體越好。如果是 MCP tool call,貼上 tool name + arguments
+      placeholder: |
+        1. 在 Claude Desktop 問:「找台北公車路線」
+        2. AI 呼叫 opendata-search_datasets({"query":"台北 公車"})
+        3. 預期 top 1 是 168xxx,實際是 99xxx
+    validations:
+      required: true
+
+  - type: input
+    id: client
+    attributes:
+      label: 你用的 client
+      placeholder: "例:Claude Desktop 0.9.x / Cursor / OpenClaw / Hermes / 自寫 fastmcp loop"
+
+  - type: input
+    id: when
+    attributes:
+      label: 大概什麼時候發生
+      placeholder: "例:2026-05-11 14:30 (UTC+8)"
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: 其他資訊 (optional)
+      description: 截圖、log、相關 dataset_id、API key alias (前 8 碼即可,不要貼完整 sk-)

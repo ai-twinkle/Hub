@@ -1,0 +1,60 @@
+name: 🎯 Feature request
+description: 提出新功能、新資料集、新 tool 的想法
+title: "[Feature] "
+labels: ["feature", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感謝你想提 feature!
+
+        在開單前,**先到 [Discord](https://discord.com/servers/twinkle-ai-1310544431983759450) 看一下大家有沒有討論過類似的點子**。
+        如果是純粹腦力激盪 / 「這樣設計對不對」的討論,Discord 比 issue 更快。
+
+  - type: textarea
+    id: what
+    attributes:
+      label: 你想要 Twinkle Hub 做什麼?
+      description: 一句話描述,然後展開細節。具體越好。
+      placeholder: 例:我想用 AI 查健保特約醫院「即時看診人數」
+    validations:
+      required: true
+
+  - type: textarea
+    id: why
+    attributes:
+      label: 為什麼?你的 use case 是什麼?
+      description: 想解決什麼問題?目前怎麼做的?
+      placeholder: 例:我做一個給長輩看的 AI 助手,想自動推薦人較少的健保醫院
+    validations:
+      required: true
+
+  - type: dropdown
+    id: type
+    attributes:
+      label: 類型
+      options:
+        - 新資料集 (data.gov.tw 上有但我們沒接,或政府以外的)
+        - 新 utility tool (身分證 / 統編這類純函式)
+        - 既有 tool 改進 (多欄位 / 改參數 / 修 bug)
+        - Client 整合 (新 client 支援、新 client 預設教學)
+        - UI / 文件 / docs
+        - 其他
+    validations:
+      required: true
+
+  - type: textarea
+    id: refs
+    attributes:
+      label: 相關連結 (optional)
+      description: 上游資料集 URL、相關討論、競品做法等
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checklist
+      options:
+        - label: 我已到 Discord 看過,沒有人討論過(或這個值得在 issue 留 record)
+          required: true
+        - label: 我願意在 alpha 期被 contact 詢問細節
+          required: false

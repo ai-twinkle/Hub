@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 一般討論 / 想法腦力激盪
+    url: https://discord.com/servers/twinkle-ai-1310544431983759450
+    about: 不確定要不要開 issue?到 Discord 聊比較快
+  - name: 📘 Facebook 社團 / alpha 期動態
+    url: https://www.facebook.com/groups/twinkleai
+    about: 看新功能 ship、跟 TW community 互動
+  - name: 📧 商業聯繫 / 不適合公開的問題
+    url: mailto:support@twinkleai.tw
+    about: 直接寄 email 給我們
