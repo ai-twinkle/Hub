@@ -27,6 +27,10 @@
   </a>
 </p>
 
+<p align="center">
+  <strong>🇹🇼 繁體中文</strong> · <a href="#english">🇬🇧 English</a>
+</p>
+
 ---
 
 ## 這是什麼
@@ -55,7 +59,11 @@ Twinkle Hub 是 **MCP-as-a-Service** — 一支 Bearer token 接進 Claude Deskt
 
 ### 2. Claude Desktop
 
-編輯 config:
+**方式 A：一鍵安裝（推薦）**
+
+下載 [twinkle-hub.mcpb](./twinkle-hub.mcpb) → 雙擊開啟 → Claude Desktop 會跳出安裝視窗 → 貼上你 dashboard 拿到的 sk- key → 完成。5 個 `opendata-*` tool + 32 個 `twtools-*` 立刻出現、不用碰 JSON。
+
+**方式 B：手動編輯 config**
 
 - **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
 - **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
@@ -76,7 +84,7 @@ Twinkle Hub 是 **MCP-as-a-Service** — 一支 Bearer token 接進 Claude Deskt
 }
 ```
 
-把 `sk-...` 換成你 dashboard 看到的 key，重啟 Claude Desktop，5 個 `opendata-*` tool + 32 個 `twtools-*` 就會出現。
+把 `sk-...` 換成你 dashboard 看到的 key，重啟 Claude Desktop。
 
 ### 3. Cursor
 
@@ -157,6 +165,147 @@ codex mcp get twinkle-hub
 
 ---
 
+<a id="english"></a>
+
+## English
+
+<p align="center">
+  <a href="#twinkle-hub">🇹🇼 繁體中文</a> · <strong>🇬🇧 English</strong>
+</p>
+
+**Taiwan's first MCP Hub — the full data.gov.tw catalog wired straight into your AI.**
+
+Twinkle Hub is **MCP-as-a-Service**. Drop one Bearer token into Claude Desktop / Cursor / OpenClaw / Hermes / any MCP client, and your AI can query:
+
+- 📊 **49,343 Taiwan government open datasets** (96.6% of data.gov.tw, live)
+- 🏛️ **135,000+ government procurement records** (PCC daily sync)
+- 🛠️ **32 Taiwan-specific utility tools** (national ID / company ID / ROC year / address / agency lookups…)
+
+**Free during alpha.** Try:
+
+> "Plan a 3-day family trip from Taipei — popular spots + licensed B&Bs in Taichung + night markets along the way."
+>
+> "Top 10 highest-value government procurements this year, plus vendor distribution."
+>
+> "Top 10 university programs by admission rate for the 113 academic year."
+
+### Install (10 minutes)
+
+**1. Get an API key**
+
+Sign in at [https://hub.twinkleai.tw/login](https://hub.twinkleai.tw/login) with Google or GitHub. You'll get a virtual API key (`sk-...`) automatically on first login.
+
+**2. Claude Desktop**
+
+**Option A — One-click install (recommended)**
+
+Download [twinkle-hub.mcpb](./twinkle-hub.mcpb) → double-click → Claude Desktop opens the install prompt → paste your `sk-` key → done. All 5 `opendata-*` tools + 32 `twtools-*` show up instantly, no JSON editing.
+
+**Option B — Manual config**
+
+Edit config:
+
+- **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
+- **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
+
+Add:
+
+```json
+{
+  "mcpServers": {
+    "twinkle-hub": {
+      "type": "http",
+      "url": "https://api.twinkleai.tw/mcp/",
+      "headers": {
+        "Authorization": "Bearer sk-..."
+      }
+    }
+  }
+}
+```
+
+Replace `sk-...` with your dashboard key, restart Claude Desktop.
+
+**3. Cursor**
+
+Cursor uses `~/.cursor/mcp.json` — same shape as Claude Desktop. Save → Settings → MCP → reload.
+
+**4. Claude Code (CLI)**
+
+```bash
+claude mcp add --transport http twinkle-hub https://api.twinkleai.tw/mcp/ \
+  --header "Authorization: Bearer sk-..."
+```
+
+**5. OpenClaw / Hermes / your own agent loop**
+
+We're an **MCP endpoint (open protocol, not an SDK)**. Anything that speaks MCP streamable-http — fastmcp Python loops, forked runtimes, custom clients — works out of the box. No OAuth flow either: it's a long-lived Bearer token you can revoke any time. Swap the endpoint and go.
+
+**6. Codex app**
+
+Edit config:
+
+- **macOS / Linux**: `~/.codex/config.toml`
+- **Windows**: `%USERPROFILE%\.codex\config.toml`
+
+Add:
+
+```toml
+[mcp_servers.twinkle-hub]
+url = "https://api.twinkleai.tw/mcp/"
+bearer_token_env_var = "TWINKLE_HUB_TOKEN"
+```
+
+Then export your API key as an env var.
+
+macOS / Linux:
+```
+export TWINKLE_HUB_TOKEN="sk-..."
+```
+
+Windows PowerShell:
+```
+[Environment]::SetEnvironmentVariable(
+  "TWINKLE_HUB_TOKEN",
+  "sk-...",
+  "User"
+)
+```
+
+Restart Codex. Verify with:
+
+```
+codex mcp get twinkle-hub
+```
+
+At least 5 `opendata-*` tools should appear.
+
+Full docs: [https://hub.twinkleai.tw/docs](https://hub.twinkleai.tw/docs)
+
+### Community
+
+| What you want | Where |
+|---|---|
+| **Chat / questions / discussion with others** | [Discord — Twinkle AI](https://discord.com/servers/twinkle-ai-1310544431983759450) |
+| **Feature requests / bug reports** | [Issues](../../issues/new/choose) |
+| **Alpha shipping updates / release notes** | [Facebook group](https://www.facebook.com/groups/twinkleai) |
+| **Company / international news** | [LinkedIn](https://www.linkedin.com/company/twinkle-ai/) |
+| **Website** | [https://twinkleai.tw](https://twinkleai.tw) |
+| **Support / business** | <support@twinkleai.tw> |
+
+### Requesting features or datasets
+
+**Open an issue** — we have two templates:
+
+- 🎯 **Feature request** — new capability, dataset, or tool
+- 🐞 **Bug report** — broken docs, tool errors, unexpected responses
+
+> For general discussion, brainstorming, or "does this design make sense?" — **go to [Discord](https://discord.com/servers/twinkle-ai-1310544431983759450)** instead of opening an issue. Discord is faster.
+
+---
+
 ## License
 
 這個 repo 是 community feedback hub，沒有 source code。Twinkle Hub 服務本身的條款看 [/terms](https://hub.twinkleai.tw/terms)，資料授權看 [/licenses](https://hub.twinkleai.tw/licenses)。
+
+This repo is a community feedback hub; no source code lives here. Terms of service for Twinkle Hub itself are at [/terms](https://hub.twinkleai.tw/terms); data licenses at [/licenses](https://hub.twinkleai.tw/licenses).
